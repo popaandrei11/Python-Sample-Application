@@ -11,8 +11,28 @@ pool:
 
 
 
-
-
-steps:
-- script: python -m pip install --upgrade pip && pip install -r requirements.txt
-
+stages:
+  - stage: 'Install python packages'
+    jobs:
+    - job: install
+      steps:     
+      - task: CmdLine@2
+        inputs:
+          script: 'python -m pip install --upgrade pip && pip install -r requirements.txt'
+          
+  - stage: 'BlackDuck_Code_Scan'
+    jobs:
+    - job: detect
+      steps:
+      - task: SynopsysDetectTask@9
+        inputs:
+          BlackDuckService: 'BlackDuck'
+          DetectArguments: |
+            --detect.project.name=190571_Real_Estate_Intelligence_REiNT_TIM
+            --detect.project.version.name=Ongoing_Build  
+            --blackduck.trust.cert=true  
+            --detect.detector.search.depth=100  
+            --detect.tools=DETECTOR  
+            --detect.detector.search.continue=true
+            --detect.code.location.name=pipeline-name
+          DetectVersion: 'latest'
