@@ -26,8 +26,8 @@ stages:
         inputs:
           BlackDuckService: 'BlackDuck'
           DetectArguments: |
-            --detect.project.name=190571_Real_Estate_Intelligence_REiNT_TIM
-            --detect.project.version.name=Ongoing_Build  
+            --detect.project.name=Python-Sample-Application-Python-package-CI
+            --detect.project.version.name=Yaml  
             --blackduck.trust.cert=true  
             --detect.detector.search.depth=100  
             --detect.tools=DETECTOR  
