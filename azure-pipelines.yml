@@ -13,6 +13,8 @@ stages:
   - stage: 'Install_python_packages'
     jobs:
     - job: install
+      pool:
+       vmImage: 'ubuntu-latest'
       steps:     
       - task: CmdLine@2
         inputs:
@@ -21,6 +23,8 @@ stages:
   - stage: 'BlackDuck_Code_Scan'
     jobs:
     - job: detect
+      pool:
+       vmImage: 'ubuntu-latest'
       steps:
       - task: SynopsysDetectTask@9
         inputs:
