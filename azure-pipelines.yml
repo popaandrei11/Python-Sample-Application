@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: 'Install python packages'
+  - stage: 'Install_python_packages'
     jobs:
     - job: install
       steps:     
