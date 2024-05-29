@@ -18,7 +18,7 @@ stages:
       steps:     
       - task: CmdLine@2
         inputs:
-          script: 'python -m pip install --upgrade pip && pip install -r requirements.txt'
+          script: 'pip install -r requirements.txt'
 
   - stage: 'BlackDuck_Code_Scan'
     jobs:
